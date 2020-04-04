@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    rgba(45, 131, 243, 0.603),
+    rgba(103, 62, 168, 0.815),
+    rgb(106, 20, 245)
+  );
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
