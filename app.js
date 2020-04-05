@@ -4,6 +4,8 @@ window.addEventListener("load", () => {
   let locationTimezone = document.querySelector(".location-timezone");
   let temperatureDegree = document.querySelector(".temperature-degree");
   let temperatureDescription = document.querySelector(".temperature-description");
+  let temperatureSection = document.querySelector(".degree-section");
+  let temperatureSpan = document.querySelector(".degree-section span");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,8 +29,20 @@ window.addEventListener("load", () => {
           temperatureDegree.textContent = temperature;
           temperatureDescription.textContent = summary;
           locationTimezone.textContent = data.timezone;
-          var tt = setIcons(icon, document.querySelector(".icon"));
-          console.log(tt);
+          setIcons(icon, document.querySelector(".icon"));
+          //formualr for clecius to Feriherit
+          let celcius = (temperature - 32) * (5 / 9);
+          //conert to clecius
+          temperatureSection.addEventListener('click', () => {
+            if (temperatureSpan.textContent === 'F') {
+              temperatureSpan.textContent = 'C'
+              temperatureDegree.textContent = Math.floor(celcius);
+            } else {
+              temperatureSpan.textContent = 'F'
+              temperatureDegree.textContent = temperature;
+
+            }
+          });
         });
     });
   }
